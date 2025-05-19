@@ -6,17 +6,18 @@ interface PersetujuanLampiranProps {
   errors: FieldErrors<SuratDinas>;
 }
 
+// Pejabat disesuaikan dengan divisi/fungsi umum di perusahaan besar
 const pejabatOptions = [
-  'Kepala Biro Umum',
-  'Kepala Biro Keuangan',
-  'Kepala Biro Hukum',
-  'Kepala Biro Organisasi',
-  'Kepala Biro Kepegawaian',
-  'Kepala Biro Perencanaan',
-  'Kepala Biro Hubungan Masyarakat',
-  'Kepala Biro Pengawasan',
-  'Kepala Biro Teknologi Informasi',
-  'Kepala Biro Kerjasama',
+  'Kepala Divisi Teknologi Informasi',
+  'Kepala Divisi Keuangan',
+  'Kepala Divisi Pengadaan & Aset',
+  'Kepala Divisi Sumber Daya Manusia',
+  'Kepala Divisi Hukum & Kepatuhan',
+  'Kepala Divisi Pemasaran',
+  'Kepala Divisi Operasional',
+  'Kepala Divisi Perencanaan Strategis',
+  'Kepala Divisi Audit Internal',
+  'Kepala Divisi Hubungan Masyarakat',
 ];
 
 export default function PersetujuanLampiran({ register, errors }: PersetujuanLampiranProps) {
@@ -55,16 +56,6 @@ export default function PersetujuanLampiran({ register, errors }: PersetujuanLam
         {errors.pejabatPemberiTugas && <span className="text-red-500 text-sm">Pejabat pemberi tugas harus dipilih</span>}
       </div>
 
-      {/* <div>
-        <label className="block text-sm font-medium text-gray-700">Status Approval</label>
-        <input
-          type="text"
-          value=""
-          readOnly
-          className="mt-1 block w-full rounded-md border-gray-300 bg-gray-100 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-        />
-      </div> */}
-
       <div>
         <label className="block text-sm font-medium text-gray-700">Lampiran</label>
         <input
@@ -101,4 +92,4 @@ export default function PersetujuanLampiran({ register, errors }: PersetujuanLam
       </div>
     </div>
   );
-} 
+}

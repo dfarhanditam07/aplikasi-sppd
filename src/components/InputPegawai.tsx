@@ -6,24 +6,25 @@ interface InputPegawaiProps {
   errors: FieldErrors<SuratDinas>;
 }
 
-const unitKerjaOptions = [
-  'Biro Umum',
-  'Biro Keuangan',
-  'Biro Hukum',
-  'Biro Organisasi',
-  'Biro Kepegawaian',
-  'Biro Perencanaan',
-  'Biro Hubungan Masyarakat',
-  'Biro Pengawasan',
-  'Biro Teknologi Informasi',
-  'Biro Kerjasama',
+// Daftar divisi/fungsi umum dalam perusahaan besar
+const divisiOptions = [
+  'Divisi Teknologi Informasi',
+  'Divisi Keuangan',
+  'Divisi Pengadaan & Aset',
+  'Divisi Sumber Daya Manusia',
+  'Divisi Hukum & Kepatuhan',
+  'Divisi Pemasaran',
+  'Divisi Operasional',
+  'Divisi Perencanaan Strategis',
+  'Divisi Audit Internal',
+  'Divisi Hubungan Masyarakat',
 ];
 
 export default function InputPegawai({ register, errors }: InputPegawaiProps) {
   return (
     <div className="space-y-4">
       <h2 className="text-lg font-semibold text-gray-900">Informasi Pegawai</h2>
-      
+
       <div>
         <label className="block text-sm font-medium text-gray-700">Nama Pegawai</label>
         <input
@@ -55,20 +56,20 @@ export default function InputPegawai({ register, errors }: InputPegawaiProps) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Unit Kerja</label>
+        <label className="block text-sm font-medium text-gray-700">Divisi / Fungsi</label>
         <select
           {...register('unitKerja', { required: true })}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         >
-          <option value="">Pilih Unit Kerja</option>
-          {unitKerjaOptions.map((unit) => (
-            <option key={unit} value={unit}>
-              {unit}
+          <option value="">Pilih Divisi / Fungsi</option>
+          {divisiOptions.map((divisi) => (
+            <option key={divisi} value={divisi}>
+              {divisi}
             </option>
           ))}
         </select>
-        {errors.unitKerja && <span className="text-red-500 text-sm">Unit kerja harus dipilih</span>}
+        {errors.unitKerja && <span className="text-red-500 text-sm">Divisi / fungsi harus dipilih</span>}
       </div>
     </div>
   );
-} 
+}
